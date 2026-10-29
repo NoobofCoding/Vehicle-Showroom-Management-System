@@ -1,0 +1,25 @@
+{
+  "name": "autodesk-showroom",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "test": "npm --prefix backend test && npm --prefix frontend test",
+    "test:integration": "npm --prefix backend run test:integration",
+    "test:e2e": "playwright test",
+    "lint": "npm --prefix frontend run lint && npm --prefix backend run lint && eslint eslint.config.js playwright.config.js e2e backend/scripts",
+    "format": "npm --prefix frontend run format && npm --prefix frontend exec -- oxfmt -- backend/src backend/tests backend/scripts eslint.config.js playwright.config.js e2e",
+    "format:check": "npm --prefix frontend exec -- oxfmt -- --check frontend/src frontend/tests frontend/vite.config.js backend/src backend/tests backend/scripts eslint.config.js playwright.config.js e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.64.1",
+    "bcryptjs": "^2.4.3",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0"
+  }
+}
